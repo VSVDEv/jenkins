@@ -9,4 +9,4 @@ services:
     volumes:
       - /data/vsvdev-springboot-container
     ports:
-      - "8080-8100:8080"
+      - "8888-8999:8888"
