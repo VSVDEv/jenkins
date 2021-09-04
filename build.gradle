@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.vsvdev'
-version = '0.0.1-SNAPSHOT'
+version = '1'
 sourceCompatibility = '11'
 
 repositories {
@@ -22,3 +22,16 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+/*bootJar {
+	baseName "jarName"
+	launchScript()
+}
+springBoot {
+	buildInfo {
+		properties {
+			group = "groupName"
+			name = "projectName"
+			version = "1.0"
+		}
+	}
+}*/
