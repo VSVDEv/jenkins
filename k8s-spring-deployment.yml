@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: springboot
-          image: vsvdevua/vsvdev-docker-demo:vsvdev-docker-demo
+          image: vsvdevuaco/vsvdev-docker-demo:vsvdev-docker-demo
           ports:
             - containerPort: 8080
           env:

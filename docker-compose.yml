@@ -1,7 +1,7 @@
 version: '1'
 
 services:
-  jhooq-springboot-container:
+  vsvdev-springboot-container:
     image: vsvdev-spring-boot-docker-compose:1
     build:
       context: ./
