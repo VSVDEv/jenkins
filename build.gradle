@@ -1,7 +1,9 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.4'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'checkstyle'
+    id 'com.github.spotbugs' version '4.7.0'
 }
 
 group = 'com.vsvdev'
@@ -9,29 +11,26 @@ version = '1'
 sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+checkstyle {
+    toolVersion = '6.16.1'
+    config = rootProject.resources.text.fromFile('config/checkstyle/checkstyle.xml')
+}
+tasks.withType(com.github.spotbugs.snom.SpotBugsTask) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
-/*bootJar {
-	baseName "jarName"
-	launchScript()
-}
-springBoot {
-	buildInfo {
-		properties {
-			group = "groupName"
-			name = "projectName"
-			version = "1.0"
-		}
-	}
-}*/
+
